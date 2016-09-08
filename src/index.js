@@ -15,7 +15,7 @@ const Trigger = React.createClass({
 
   getDefaultProps: function () {
     return {
-      filename: 'untitled.png',
+      filename: null,
       width: 400,
       height: 400,
       eventName: 'downloadSvg',
