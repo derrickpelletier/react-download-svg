@@ -10,7 +10,7 @@ Use `react-download-svg` to decorate an SVG component/element, and when triggere
 
 `<Wrapper>` listens to an event from `<Trigger>`, meaning you can import the trigger elsewhere in your application, no need to have them directly connected. Unique event names can be used if you need to avoid collisions.
 
-```jsx
+```javascript
 
 import {
   Wrapper,
@@ -39,7 +39,7 @@ const SomeComponent = React.createComponent({
 
 To initiate a download without using the `<Trigger>`, you can hit the `startDownload()` method directly if you're using a `ref`.
 
-```jsx
+```javascript
 
 import {
   Wrapper
