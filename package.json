@@ -1,6 +1,6 @@
 {
   "name": "react-download-svg",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Decorate an SVG so you can download it",
   "keywords": [
     "react",
