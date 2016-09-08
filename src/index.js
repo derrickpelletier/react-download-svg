@@ -3,7 +3,7 @@ import React from 'react';
 import EventEmitter from 'wolfy87-eventemitter';
 const ee = new EventEmitter();
 
-const DownloadSvgTrigger = React.createClass({
+const Trigger = React.createClass({
   displayName: 'DownloadSvgTrigger',
   propTypes: {
     component: React.PropTypes.any,
@@ -18,14 +18,13 @@ const DownloadSvgTrigger = React.createClass({
       filename: 'untitled.png',
       width: 400,
       height: 400,
-      eventName: 'uiNeedsChartSvg',
+      eventName: 'downloadSvg',
       component: 'button'
     };
   },
 
   handleExport: function () {
     // Request a PNG with a specific size.
-    console.log('triggering event');
     ee.emit(this.props.eventName, {
       width: this.props.width,
       height: this.props.height
@@ -40,7 +39,7 @@ const DownloadSvgTrigger = React.createClass({
   }
 });
 
-const DownloadSvgWrapper = React.createClass({
+const Wrapper = React.createClass({
   displayName: 'DownloadSvgWrapper',
   propTypes: {
     filename: React.PropTypes.string,
@@ -59,12 +58,12 @@ const DownloadSvgWrapper = React.createClass({
   getDefaultProps: function () {
     return {
       filename: 'untitled.png',
-      listenFor: 'uiNeedsChartSvg'
+      listenFor: 'downloadSvg'
     }
   },
 
   componentDidMount: function () {
-    ee.addListener(this.props.listenFor, this.createDownloadable);
+    ee.addListener(this.props.listenFor, this.startDownload);
     this.isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
   },
 
@@ -132,8 +131,7 @@ const DownloadSvgWrapper = React.createClass({
    * height: Number
    * filename: String (optional)
    */
-  createDownloadable: function (data) {
-    console.log('heard event, creating downloadable');
+  startDownload: function (data) {
     this.setState({
       width: data.width,
       height: data.height,
@@ -161,6 +159,6 @@ const DownloadSvgWrapper = React.createClass({
 });
 
 export {
-	DownloadSvgWrapper,
-	DownloadSvgTrigger
+	Wrapper,
+	Trigger
 };
