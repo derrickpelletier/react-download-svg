@@ -27,7 +27,8 @@ const Trigger = React.createClass({
     // Request a PNG with a specific size.
     ee.emit(this.props.eventName, {
       width: this.props.width,
-      height: this.props.height
+      height: this.props.height,
+      filename: this.props.filename
     });
   },
 
