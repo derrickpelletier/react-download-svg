@@ -79,10 +79,6 @@ const Wrapper = React.createClass({
     //
     const $clone = $svg.cloneNode(true);
 
-    $clone.style['font-family'] = '\'Helvetica Neue\', Arial, Helvetica, sans-serif';
-    $clone.style['font-size'] = '14px';
-    $clone.style['line-height'] = '1.4285em';
-
     $clone.setAttribute('width', width);
     $clone.setAttribute('height', height);
 
